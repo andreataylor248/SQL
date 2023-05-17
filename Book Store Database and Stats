@@ -1,0 +1,50 @@
+CREATE TABLE book_store (id integer primary key, name text, author text, cost integer, amount integer, rating integer);
+
+insert into book_store values (1, "The Pillars of the Earth", "Follett", 25, 7, 5);
+insert into book_store values (2, "A Gentleman in Moscow", "Amor Towles", 13, 4, 1);
+insert into book_store values (3, "Inferno", "Dan Brown", 22, 5, 5);
+insert into book_store values (4, "Sarum", "Edward Rutherford", 19, 2, 3);
+insert into book_store values (5, "Sense and Sensibility", "Jane Austen", 10, 6, 3);
+insert into book_store values (6, "Pride and Prejudice", "Jane Austen", 13, 3, 4);
+insert into book_store values (7, "To Kill a Mockingbird", "Harper Lee", 17, 4, 5);
+insert into book_store values (8, "The Great Gatsby", "F. Scott Fitzgerald", 19, 4, 5);
+insert into book_store values (9, "Of Mice and Men", "John Steinbeck", 18, 7, 5);
+insert into book_store values (10, "Dracula", "Bram Stoker", 14, 5, 2);
+insert into book_store values (11, "The Adventures of Huckleberry Finn", "Mark Twain", 17, 2, 5);
+insert into book_store values (12, "The Age of Innocence", "Edith Wharton", 13, 2, 2);
+insert into book_store values (13, "Les Miserables", "Victor Hugo", 15, 5, 3);
+insert into book_store values (14, "A Farewell to Arms", "Ernest Hemingway", 16, 2, 4);
+insert into book_store values (15, "The Old Man and the Sea", "Ernest Hemingway", 18, 6, 5);
+
+
+
+select * from book_store;
+
+select * from book_store 
+where cost > 18;
+
+-display the amounts of books available for purchase.
+select sum(amount) from book_store;
+
+What is the highest book cost?
+select max(cost) from book_store;
+
+Which book do we have the most of, and how many are available?
+select name, max(amount) from book_store;
+
+Which book has the lowest rating?
+select name, min(rating) from book_store;
+
+What is the average rating of books?
+select avg(rating) from book_store;
+
+Which author has the highest average rating?
+sselect author, avg(rating) from book_store;
+
+Which authors have a rating of 4 or above?
+select author, rating from book_store
+where rating >= 4
+order by rating desc;
+
+
+
