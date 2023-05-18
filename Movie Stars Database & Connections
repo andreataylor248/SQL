@@ -1,0 +1,40 @@
+CREATE TABLE movie_stars (id INTEGER PRIMARY KEY,
+    full_name TEXT,
+    age integer,
+    birthdate TEXT);
+
+insert into movie_stars (full_name, age, birthdate) values ("Ryan Reynolds", 46, "10-23-1976");
+insert into movie_stars (full_name, age, birthdate) values ("Blake Lively", 35, "08-35-1987");
+insert into movie_stars (full_name, age, birthdate) values ("Goldie Hawn", 77, "11-21-1945");
+insert into movie_stars (full_name, age, birthdate) values ("Kurt Russell", 72, "03-17-1951");
+
+create table movies (id integer primary key, name text, star_id text);
+
+insert into movies (name, star_id) values ("Tombstone", 4);
+insert into movies (name, star_id) values ("Deadpool", 1);
+insert into movies (name, star_id) values ("Private Benjamin", 3);
+insert into movies (name, star_id) values ("The Age of Adaline", 2);
+
+
+create table partners (id integer primary key, person1_id integer, person2_id integer);
+
+insert into partners (person1_id, person2_id) values (1,2);
+insert into partners (person1_id, person2_id) values (3,4);
+
+
+SELECT * FROM movie_stars;
+
+Display the connection between the movie stars and the movies.
+select ms.full_name, m.name
+from movie_stars ms
+join movies m
+on ms.id = m.star_id;
+
+
+Display the relationship between the movie stars.
+select a.full_name, b.full_name
+from partners
+join movie_stars a
+on a.id = partners.person1_id
+join movie_stars b
+on b.id = partners.person2_id;
